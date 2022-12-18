@@ -53,7 +53,7 @@ Route.group(() => {
   // Route.patch("/todos/:id", "");
   // Route.delete("/todos/:id", "");
   Route.post("/categories/:id/todos", "TodosController.create");
-  Route.get("/categories/:id/todos", "TodosController.read");
+  Route.get("/categories/:id/todos", "TodosController.listcategory");
   Route.get("/todos", "TodosController.list");
   Route.patch("/todos/:id", "TodosController.update");
   Route.delete("/todos/:id", "TodosController.delete");

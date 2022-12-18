@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "fd80ec62-82fb-4881-b9cc-b38f3f8be1be",
+		"name": "Qdolist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signUp, signIn",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uid",
+									"value": "user1",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password1",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "User 1",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/sign-up"
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uid",
+									"value": "user1",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password1",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/sign-in"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "categoryCreate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MzU.1CeiYIRD834dN39Y7y48-0e9-vreahHGWqstfzknwo8N9cxwSvro84aHjQ6R"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "user1category1",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "categoryList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MzU.1CeiYIRD834dN39Y7y48-0e9-vreahHGWqstfzknwo8N9cxwSvro84aHjQ6R"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": "localhost:3333/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "categoryUpdate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MzU.1CeiYIRD834dN39Y7y48-0e9-vreahHGWqstfzknwo8N9cxwSvro84aHjQ6R"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "카테고리 수정",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/categories/2"
+					},
+					"response": []
+				},
+				{
+					"name": "categoryDelete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MzU.1CeiYIRD834dN39Y7y48-0e9-vreahHGWqstfzknwo8N9cxwSvro84aHjQ6R"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": "localhost:3333/categories/18"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "me",
+			"item": [
+				{
+					"name": "meUpdate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MzU.1CeiYIRD834dN39Y7y48-0e9-vreahHGWqstfzknwo8N9cxwSvro84aHjQ6R"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "User 33",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/me/3"
+					},
+					"response": []
+				},
+				{
+					"name": "meLeave",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "MzU.1CeiYIRD834dN39Y7y48-0e9-vreahHGWqstfzknwo8N9cxwSvro84aHjQ6R"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:3333/me/3"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "todoCreate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Mzc.6tv1VKSNFSrmlN8xLILtfLy8kr_9_mbrEV3CdqJW1-zpEm3_IjhZXueHD_YD"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category_id",
+									"value": "8",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "asdasdf",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "todoList",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "todoListCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "todoUpdate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Mzg.jHBAr4SRyeEOO52rXK3DZyR1b17ZHpIfzHffhQlP41a6TkXKIWx14ijEpjDV"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": "localhost:3333/todos/15"
+					},
+					"response": []
+				},
+				{
+					"name": "todoDelete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Mzg.jHBAr4SRyeEOO52rXK3DZyR1b17ZHpIfzHffhQlP41a6TkXKIWx14ijEpjDV"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:3333/todos/14"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

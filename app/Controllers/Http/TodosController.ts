@@ -17,7 +17,7 @@ export default class TodosController {
   }
   
   // 카테고리별 todo 리스트 보기 완료 (아이디별 전체 목록은 필요한가?)
-  async read({ auth, params, response }: HttpContextContract) {
+  async listcategory({ auth, params, response }: HttpContextContract) {
     const { id } = params;
     const userId = auth.user!.id;
     const category = await Category.findOrFail(id);

@@ -3,11 +3,28 @@ import Category from "App/Models/Category";
 import Todo from "App/Models/Todo";
 
 export default class TodosController {
+
+  //유저별 (카테고리, 할 일)전체 목록 보기
   async list({ auth, response }: HttpContextContract) {
     const userId = auth.user!.id;
     const todos = await Todo.query()
       .where({
         user_id: userId,
+      })
+      .exec();
+
+    return response.ok(todos);
+  }
+  
+  // 카테고리별 todo 리스트 보기 완료 (아이디별 전체 목록은 필요한가?)
+  async read({ auth, params, response }: HttpContextContract) {
+    const { id } = params;
+    const userId = auth.user!.id;
+    const category = await Category.findOrFail(id);
+    const todos = await Todo.query()
+      .where({
+        user_id: userId,
+        category_id: category.id,
       })
       .exec();
 
@@ -86,7 +103,7 @@ export default class TodosController {
     await todo.save();
     return todo;
   }
-  
+
   //todo 삭제 완료
   async delete({ params, auth, response }: HttpContextContract) {
     // <-- bouncer를 사용하였지만, 삭제 권한 유효성 검사 때문에 포기. 방법이 있을것이다. 우린 늘 찾아왔으니...
